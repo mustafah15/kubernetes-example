@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: comments-deployment
+spec:
+  selector:
+    matchLabels:
+      app: comments
+  template:
+    metadata:
+      labels:
+        app: comments
+    spec:
+      containers:
+      - name: comments-deployment
+        image: mustafah15/comments
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+  replicas: 1
