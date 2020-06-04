@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: comments-deployment
+  name: moderation-deployment
 spec:
   selector:
     matchLabels:
-      app: comments
+      app: moderation
   template:
     metadata:
       labels:
-        app: comments
+        app: moderation
     spec:
       containers:
-      - name: comments-deployment
-        image: mustafah15/comments
+      - name: moderation-deployment
+        image: mustafah15/moderation
         resources:
           limits:
             memory: "128Mi"
@@ -24,12 +24,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: comments
+  name: moderation
 spec:
   selector:
-    app: comments
+    app: moderation
   ports:
-  - name: comments-port
+  - name: moderation-port
     protocol: TCP
-    port: 4001
-    targetPort: 4001
+    port: 4003
+    targetPort: 4003

@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: comments-deployment
+  name: query-deployment
 spec:
   selector:
     matchLabels:
-      app: comments
+      app: query
   template:
     metadata:
       labels:
-        app: comments
+        app: query
     spec:
       containers:
-      - name: comments-deployment
-        image: mustafah15/comments
+      - name: query-deployment
+        image: mustafah15/query
         resources:
           limits:
             memory: "128Mi"
@@ -24,12 +24,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: comments
+  name: query
 spec:
   selector:
-    app: comments
+    app: query
   ports:
-  - name: comments-port
+  - name: query-port
     protocol: TCP
-    port: 4001
-    targetPort: 4001
+    port: 4002
+    targetPort: 4002
