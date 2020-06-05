@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { applicationUrl } from './config';
 
 export default () => {
   const [title, setTitle] = useState('');
@@ -7,7 +8,7 @@ export default () => {
   const onSubmit = async event => {
     event.preventDefault();
 
-    await axios.post('http://localhost:4000/posts', {
+    await axios.post(`${applicationUrl}/posts`, {
       title
     });
 
