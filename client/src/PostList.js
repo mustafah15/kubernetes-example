@@ -8,7 +8,7 @@ export default () => {
   const [posts, setPosts] = useState({});
 
   const fetchPosts = async () => {
-    const res = await axios.get(`${applicationUrl}/posts`);
+    const res = await axios.get(`${applicationUrl}/query/posts`);
 
     setPosts(res.data);
   };
